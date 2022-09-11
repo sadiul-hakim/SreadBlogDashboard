@@ -30,4 +30,22 @@ public class CategoryDao {
         
         return deleted;
     }
+    
+    
+    public boolean addCategory(String name,String description){
+        boolean added=false;
+        String query="insert into categories(name,description) values(?,?)";
+        
+        try(PreparedStatement statement=con.prepareStatement(query)){
+            statement.setString(1,name);
+            statement.setString(2,description);
+            
+            statement.execute();
+            added=true;
+        } catch (SQLException ex) {
+            Logger.getLogger(CategoryDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return added;
+    }
 }

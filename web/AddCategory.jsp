@@ -1,18 +1,13 @@
 <%-- 
-    Document   : index
+    Document   : Add Category
     Created on : Sep 9, 2022, 2:01:42 PM
     Author     : ACT
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="com.hakim.dao.ServerCall" %>
-<%@page import="com.hakim.entities.User" %>
-<%@page import="com.hakim.db.ConnectionProvider" %>
-<%@page import="java.util.List" %>
 
-<%
-    List<User> users=ServerCall.getAllUsers(ConnectionProvider.getConnection());
-%>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -34,7 +29,7 @@
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <a href="ShowUsers.jsp" class="p-2 text-info">Show All Users</a>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -47,7 +42,7 @@
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <a href="ShowPosts.jsp" class="p-2 text-info">Show All Posts</a>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -82,31 +77,14 @@
         </div>
         <%-- Side Bar Ends --%>
 
-        <div class="rightside">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Bio</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">#</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%for(User u:users){%>
-                    <tr>
-                        <td><%= u.getId()%></td>
-                        <td><%= u.getName()%></td>
-                        <td><%= u.getEmail()%></td>
-                        <td><%= u.getBio()%></td>
-                        <td><%= u.getDateTime()%></td>
-                        <td><a href="DeleteUser?id=<%= u.getId()%>">Delete</a></td>
-                    </tr>
-                    <%}%>
-                </tbody>
-            </table>
+        <div class="rightside p-5">
+
+            <form class="row g-2" action="AddCategoryServlet" method="post">
+                <input type="text" name="name" placeholder="Category Name"/>
+                <textarea name="description" placeholder="Description"></textarea>
+                <input type="submit" value="Add Category"/>
+            </form>
+
         </div>
 
 

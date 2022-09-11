@@ -12,6 +12,10 @@
         <servlet-name>DeleteCategory</servlet-name>
         <servlet-class>com.hakim.servlets.DeleteCategory</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddCategoryServlet</servlet-name>
+        <servlet-class>com.hakim.servlets.AddCategoryServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>DeleteUser</servlet-name>
         <url-pattern>/DeleteUser</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>DeleteCategory</servlet-name>
         <url-pattern>/DeleteCategory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddCategoryServlet</servlet-name>
+        <url-pattern>/AddCategoryServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

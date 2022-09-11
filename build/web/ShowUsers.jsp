@@ -60,7 +60,7 @@
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <a href="ShowCategories.jsp" class="p-2 text-info">Show All Categories</a>
-                            <a href="" class="p-2 text-info ">Categories Actions</a>
+                            <a href="AddCategory.jsp" class="p-2 text-info ">Categories Actions</a>
                         </div>
                     </div>
                 </div>
