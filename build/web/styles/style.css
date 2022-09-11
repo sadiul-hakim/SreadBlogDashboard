@@ -1,0 +1,51 @@
+/* 
+    Created on : Sep 11, 2022, 2:35:17 PM
+    Author     : Hakim
+*/
+
+body{
+    background-color: #eceff4;
+}
+
+.sidebar{
+    width:12rem;
+    position: absolute;
+    top:56px;
+    left:0;
+    bottom:0;
+}
+
+.accordion-body{
+    padding:0 !important;
+}
+
+.accordion-body a{
+    text-decoration: none;
+    display: block;
+    
+}
+
+.accordion-body a:hover
+{
+    background: #f1f3f5;
+}
+.accordion-body a:first-child{
+    border-bottom: 1px solid #999;
+}
+
+.rightside{
+    position: absolute;
+    top:56px;
+    left:192px;
+    bottom:0;
+    right:0;
+}
+
+.show-card{
+    height:8rem;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 1.2rem;
+   font-family: sans-serif;
+}
