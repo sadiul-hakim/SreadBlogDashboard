@@ -1,28 +1,24 @@
 <%-- 
-    Document   : index
-    Created on : Sep 9, 2022, 2:01:42 PM
-    Author     : ACT
+    Document   : AdminAction
+    Created on : Sep 12, 2022, 2:01:18 PM
+    Author     : Hakim
 --%>
 
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="com.hakim.dao.ServerCall" %>
-<%@page import="com.hakim.entities.Category" %>
-<%@page import="com.hakim.db.ConnectionProvider" %>
-<%@page import="java.util.List" %>
 
 <%@page import="com.hakim.entities.Admin" %>
 <%@page import="jakarta.servlet.RequestDispatcher" %>
 
 <%
-    
     //authentication
     RequestDispatcher dispatcher=request.getRequestDispatcher("AdminLogin.jsp");
     Admin admin=(Admin)session.getAttribute("admin");
     if(admin==null){
         dispatcher.forward(request,response);
     }
-    List<Category> categories=ServerCall.getCategories(ConnectionProvider.getConnection());
 %>
+
 
 <!DOCTYPE html>
 <html>
@@ -44,7 +40,7 @@
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <a href="ShowUsers.jsp" class="p-2 text-info">Show All Users</a>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -57,7 +53,7 @@
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <a href="ShowPosts.jsp" class="p-2 text-info">Show All Posts</a>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -92,27 +88,39 @@
         </div>
         <%-- Side Bar Ends --%>
 
-        <div class="rightside">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Category Id</th>
-                        <th>Name</th>
-                        <th>Description Id</th>
-                        <th scope="col">#</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%for(Category c:categories){%>
-                    <tr>
-                        <td><%= c.getCid()%></td>
-                        <td><%= c.getName()%></td>
-                        <td><%= c.getDescription()%></td>
-                        <td><a href="DeleteCategory?id=<%= c.getCid()%>">Delete</a></td>
-                    </tr>
-                    <%}%>
-                </tbody>
-            </table>
+        <div class="rightside p-5">
+            <div class="container">
+                <div class="row">
+                    <div class="card col-5 offset-2">
+                        <div class="card-header">
+                            <h3 class="">Edit Admin Profile</h3>
+                        </div>
+                        <form class="card-body">
+                            <input type="text" name="name" placeholder="Admin Name" class="form-control mb-1"/>
+                            <input type="file" name="pic" class="form-control mb-1"/>
+                            <input type="submit" value="Save" class="btn btn-primary"/>
+                            
+                        </form>
+                        
+                    </div>
+                </div>
+                
+                <div class="row mt-2">
+                    <div class="card col-5 offset-2">
+                        <div class="card-header">
+                            <h3 class="">Change Password</h3>
+                        </div>
+                         <form class="card-body">
+                             <input type="password" name="old" placeholder="old password" class="form-control mb-1"/>
+                             <input type="password" name="new" placeholder="new password"class="form-control mb-1"/>
+                            <input type="submit" value="Change" class="btn btn-primary"/>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
 
 

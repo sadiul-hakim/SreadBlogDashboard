@@ -1,5 +1,6 @@
 package com.hakim.dao;
 
+import com.hakim.entities.Admin;
 import com.hakim.entities.Category;
 import com.hakim.entities.Comment;
 import com.hakim.entities.Post;
@@ -151,5 +152,25 @@ public class ServerCall {
         }
         
         return list;
+    }
+    
+    public static boolean isCorrentAdmin(Admin admin,Connection con){
+        boolean isCorrect=false;
+        String query="select * from admin where name=? and admin_password =?";
+        
+        try(PreparedStatement statement=con.prepareStatement(query)){
+            statement.setObject(1, admin.getName());
+            statement.setObject(2, admin.getAdmin_password());
+            
+            ResultSet set=statement.executeQuery();
+            
+            if(set.next()){
+                isCorrect=true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServerCall.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return isCorrect;
     }
 }

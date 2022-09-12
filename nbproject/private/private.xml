@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/java_code/SreadBlogDashboard/web/ShowPosts.jsp</file>
-            <file>file:/D:/java_code/SreadBlogDashboard/src/java/com/hakim/servlets/DeleteUser.java</file>
-            <file>file:/D:/java_code/SreadBlogDashboard/web/ShowCategories.jsp</file>
-            <file>file:/D:/java_code/SreadBlogDashboard/web/ShowUsers.jsp</file>
-            <file>file:/D:/java_code/SreadBlogDashboard/src/java/com/hakim/servlets/DeleteCategory.java</file>
-            <file>file:/D:/java_code/SreadBlogDashboard/src/java/com/hakim/dao/ServerCall.java</file>
-            <file>file:/D:/java_code/SreadBlogDashboard/web/index.jsp</file>
-            <file>file:/D:/java_code/SreadBlogDashboard/src/java/com/hakim/entities/Category.java</file>
-            <file>file:/D:/java_code/SreadBlogDashboard/src/java/com/hakim/dao/CategoryDao.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

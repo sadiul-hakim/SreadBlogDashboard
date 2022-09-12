@@ -9,11 +9,23 @@
 <%@page import="com.hakim.dao.ServerCall" %>
 <%@page import="com.hakim.entities.User" %>
 <%@page import="com.hakim.entities.Post" %>
+
 <%@page import="com.hakim.entities.Category" %>
 <%@page import="com.hakim.db.ConnectionProvider" %>
 <%@page import="java.util.List" %>
 
+<%@page import="com.hakim.entities.Admin" %>
+<%@page import="jakarta.servlet.RequestDispatcher" %>
+
 <%
+    //authentication
+    RequestDispatcher dispatcher=request.getRequestDispatcher("AdminLogin.jsp");
+    Admin admin=(Admin)session.getAttribute("admin");
+    if(admin==null){
+        dispatcher.forward(request,response);
+    }
+    
+    
     List<User> users=ServerCall.getAllUsers(ConnectionProvider.getConnection());
     List<Post> posts=ServerCall.getAllPosts(ConnectionProvider.getConnection());
     List<Category> categories=ServerCall.getCategories(ConnectionProvider.getConnection());
@@ -75,7 +87,7 @@
                     </h2>
                     <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                           <a href="" class="p-2 text-info">Admin Actions</a>
+                           <a href="AdminAction.jsp" class="p-2 text-info">Admin Actions</a>
                         </div>
                     </div>
                 </div>

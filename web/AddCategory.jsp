@@ -6,7 +6,18 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%@page import="com.hakim.entities.Admin" %>
+<%@page import="jakarta.servlet.RequestDispatcher" %>
 
+<%
+
+    //authentication
+    RequestDispatcher dispatcher=request.getRequestDispatcher("AdminLogin.jsp");
+    Admin admin=(Admin)session.getAttribute("admin");
+    if(admin==null){
+        dispatcher.forward(request,response);
+    }
+%>
 
 
 <!DOCTYPE html>
@@ -67,7 +78,7 @@
                     </h2>
                     <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <a href="" class="p-2 text-info">Admin Actions</a>
+                            <a href="AdminAction.jsp" class="p-2 text-info">Admin Actions</a>
                         </div>
                     </div>
                 </div>
